@@ -1,0 +1,25 @@
+{
+  "id" : "1df59690-b4db-4751-8e53-49f1c339d388",
+  "name" : "Login operation - 401",
+  "request" : {
+    "urlPath" : "/login",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 401
+  },
+  "uuid" : "1df59690-b4db-4751-8e53-49f1c339d388",
+  "persistent" : true,
+  "metadata" : {
+    "mocklab" : {
+      "created" : {
+        "at" : "2023-02-13T20:36:32.146546702Z",
+        "via" : "OAS3_IMPORT"
+      },
+      "oas" : {
+        "operationId" : "(none)"
+      }
+    }
+  },
+  "insertionIndex" : 2
+}

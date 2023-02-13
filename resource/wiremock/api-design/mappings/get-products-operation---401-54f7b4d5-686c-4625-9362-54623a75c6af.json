@@ -1,0 +1,25 @@
+{
+  "id" : "54f7b4d5-686c-4625-9362-54623a75c6af",
+  "name" : "Get products operation - 401",
+  "request" : {
+    "urlPath" : "/products",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 401
+  },
+  "uuid" : "54f7b4d5-686c-4625-9362-54623a75c6af",
+  "persistent" : true,
+  "metadata" : {
+    "mocklab" : {
+      "created" : {
+        "at" : "2023-02-13T20:36:32.262964447Z",
+        "via" : "OAS3_IMPORT"
+      },
+      "oas" : {
+        "operationId" : "(none)"
+      }
+    }
+  },
+  "insertionIndex" : 0
+}

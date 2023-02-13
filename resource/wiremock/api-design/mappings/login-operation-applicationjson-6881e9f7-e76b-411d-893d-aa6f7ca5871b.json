@@ -1,0 +1,43 @@
+{
+  "id" : "6881e9f7-e76b-411d-893d-aa6f7ca5871b",
+  "name" : "Login operation (application/json)",
+  "request" : {
+    "urlPath" : "/login",
+    "method" : "POST",
+    "headers" : {
+      "Accept" : {
+        "contains" : "application/json"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\n  \"token\" : \"jo50yr0zm7vgcuqfn4lin00vsu7173oz9uhjog624fhde7lkaucr2q1f7xoioojf9lrxjsk4lcmf0gbwg92xegrjm6rm2mrdquzgbdo8nib6j8a092qxlmvg15z9hxxk442vet76opje249ftx1fggn\"\n}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "6881e9f7-e76b-411d-893d-aa6f7ca5871b",
+  "persistent" : true,
+  "metadata" : {
+    "mocklab" : {
+      "created" : {
+        "at" : "2023-02-13T20:36:32.135267912Z",
+        "via" : "OAS3_IMPORT"
+      },
+      "oas" : {
+        "operationId" : "(none)",
+        "schema" : {
+          "type" : "object",
+          "properties" : {
+            "token" : {
+              "type" : "string",
+              "example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+            }
+          }
+        }
+      }
+    }
+  },
+  "insertionIndex" : 3
+}
