@@ -1,0 +1,72 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Product API"
+  description: "API for managing products"
+
+paths:
+  /login:
+    post:
+      tags:
+        - "Authentication"
+      summary: "Login operation"
+      description: "Performs a login operation and returns a JWT"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              username:
+                type: "string"
+                example: "user1"
+              password:
+                type: "string"
+                example: "password123"
+      responses:
+        200:
+          description: "Successful login"
+          schema:
+            type: "object"
+            properties:
+              token:
+                type: "string"
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+        401:
+          description: "Unauthorized"
+  
+  /products:
+    get:
+      tags:
+        - "Products"
+      summary: "Get products operation"
+      description: "Retrieves a list of all products"
+      parameters:
+        - in: "header"
+          name: "Authorization"
+          description: "Bearer token"
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "Successful retrieval of products"
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id:
+                  type: "integer"
+                  example: 1
+                name:
+                  type: "string"
+                  example: "Product 1"
+                description:
+                  type: "string"
+                  example: "This is product 1"
+                price:
+                  type: "number"
+                  example: 99.99
+        401:
+          description: "Unauthorized"
