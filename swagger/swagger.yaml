@@ -3,27 +3,44 @@ info:
   version: "1.0.0"
   title: "Product API"
   description: "API for managing products"
-
+host: "localhost"
+tags:
+- name: "product"
+schemes:
+- "https"
+- "http"
+basePath: "/ac/v1/exp/"
 paths:
-  /login:
-    post:
+  /user/login:
+    get:
       tags:
-        - "Authentication"
+        - "authentication"
       summary: "Login operation"
       description: "Performs a login operation and returns a JWT"
+      operationId: "loginUser"
+      produces:
+      - "application/json"
       parameters:
-        - in: "body"
-          name: "body"
-          required: true
-          schema:
-            type: "object"
-            properties:
-              username:
-                type: "string"
-                example: "user1"
-              password:
-                type: "string"
-                example: "password123"
+      - in: "header"
+        name: "x-request-id"
+        description: ""
+        type: "string"
+        required: true 
+      - in: "header"
+        name: "x-channel"
+        description: ""
+        type: "string"
+        required: true 
+      - name: "username"
+        in: "query"
+        description: "The user name for login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "The password for login in clear text"
+        required: true
+        type: "string"
       responses:
         200:
           description: "Successful login"
@@ -36,10 +53,10 @@ paths:
         401:
           description: "Unauthorized"
   
-  /products:
+  /product:
     get:
       tags:
-        - "Products"
+        - "product"
       summary: "Get products operation"
       description: "Retrieves a list of all products"
       parameters:
@@ -48,25 +65,80 @@ paths:
           description: "Bearer token"
           type: "string"
           required: true
+        - in: "header"
+          name: "x-request-id"
+          description: ""
+          type: "string"
+          required: true 
+        - in: "header"
+          name: "x-channel"
+          description: ""
+          type: "string"
+          required: true 
       responses:
         200:
           description: "Successful retrieval of products"
           schema:
-            type: "array"
-            items:
-              type: "object"
-              properties:
-                id:
-                  type: "integer"
-                  example: 1
-                name:
-                  type: "string"
-                  example: "Product 1"
-                description:
-                  type: "string"
-                  example: "This is product 1"
-                price:
-                  type: "number"
-                  example: 99.99
+            $ref: "#/definitions/products"
         401:
           description: "Unauthorized"
+          
+  /product/{Id}:
+    get:
+      tags:
+        - "product"
+      summary: "Get product details operation"
+      description: "Retrieve product details"
+      parameters:
+        - in: "header"
+          name: "Authorization"
+          description: "Bearer token"
+          type: "string"
+          required: true
+        - in: "header"
+          name: "x-request-id"
+          description: ""
+          type: "string"
+          required: true 
+        - in: "header"
+          name: "x-channel"
+          description: ""
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "Successful retrieval of accounts"
+          schema:
+            $ref: "#/definitions/product"
+        401:
+          description: "Unauthorized"          
+
+definitions:
+  products:
+    allOf:
+    - type: "array"
+      description: ""
+      items:
+        $ref: '#/definitions/product'
+
+  product:
+    type: "object"
+    description: ""
+    required:
+    - "id"
+    properties:
+      id:
+        type: "string"
+      alias:
+        type: "string"
+      name:
+        type: "string"
+      description:
+        type: "string"
+        example: "This is product 1"
+      currency:
+        type: "string"
+      status:
+        type: "string"
+      balance:
+        type: "number"
