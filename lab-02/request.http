@@ -1,6 +1,5 @@
 
 #Operacion
-### 200
-GET http://localhost:8000/  HTTP/1.1
-### 404
-GET http://localhost:8000/ HTTP/1.1
+### 
+# GET http://localhost:8000/usuario/4258951087961709784  HTTP/1.1
+

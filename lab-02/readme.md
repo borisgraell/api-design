@@ -1,17 +1,19 @@
 
-## Laboratorio 
+## Laboratorio 02
 
 
 ### Descripcion General
 
-Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Introduccion a las Apis
+Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Conceptos básicos de REST y su utilización en el diseño de APIs
+
 
 
 #### Actividades
 
-*  Descargar repositorio
-*  Levantar servidor de Mocks
-*  Consumir los apis de ejemplos
+* Descargar repositorio
+* Levantar servidor de diagramas
+* Crear Diagrama de estructura de Apis
+* Crear Ejemplos de peticiones de Apis
 
 
 ### Configuracion
@@ -63,7 +65,7 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 
 1. Accede a la carpeta 
 
-`lab-01` 
+`lab-02` 
 
 2. Abre el archivo 
 
@@ -73,22 +75,71 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 
 `docker compose up`
 
-4. Valida que el servidor de Mocks este disponible accediendo por le navegador a:
+4. Valida que el servidor de Diagramas este disponible accediendo por le navegador a:
+
+`http://localhost:9080`
+
+5. Valida que el servidor de Mocks este disponible accediendo por le navegador a:
 
 `http://localhost:9000`
 
 ----
 
-### Consumir apis de prueba
+### Diagramando APIs
 
 1. Abre el navegador
 
-2. Abre el archivo `request.http`
+2. Crear un diagrama de flujo colocando identificando los siguientes elementos:
 
-4. Pruebe las peticiones pegandolas desde el navegador
+Documentacion:`https://mermaid.js.org/syntax/flowchart.html`
 
-* Consulta de usuario
-* Consulta de imagenes del usuario
-* Consulta de saldo del usuario
-* Consulta de la factura del usuario
+* Recursos 
+* Verbos HTTP 
+* URI's 
+* Representacion del Recurso 
 
+
+Ejemplo:
+``` mermaid
+flowchart LR
+    A[Verbo] --> B(Uris)
+    B --> C{Recurso}
+    C -->|Peticion| D[path]
+    C -->|Respuesta| E[json]
+```
+
+
+Para las siguientes operaciones de un api de Supermercado:
+
+* Crear un producto en el inventario (Agrega Diagrama debajo)
+
+* Consultar los productos del inventario
+
+* Eliminar un producto del inventario
+
+* Actualizar un producto en el inventario
+
+### Creando Peticiones
+
+1. Abre el archivo `request.http`
+
+2. Crea las estructuras de ejemplo para las operaciones del api de Supermercado
+Estructura:
+
+`Metodo {Uris}/{Recurso}   Protocolo `
+
+Debes usar la siguiente URI  `/api/v1`
+
+El objecto *producto* debe tener: id,nombre,descripcion,precio.
+
+Ejemplo: 
+```
+#Consulta de Usuarios
+### 
+# GET http://localhost:8000/usuario/4258951087961709784  HTTP/1.1
+```
+
+4. Ejecuta tus peticiones.
+
+
+Documentacion: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
