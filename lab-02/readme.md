@@ -79,10 +79,6 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 
 `http://localhost:9080`
 
-5. Valida que el servidor de Mocks este disponible accediendo por le navegador a:
-
-`http://localhost:9000`
-
 ----
 
 ### Diagramando APIs
@@ -118,28 +114,3 @@ Para las siguientes operaciones de un api de Supermercado:
 * Eliminar un producto del inventario
 
 * Actualizar un producto en el inventario
-
-### Creando Peticiones
-
-1. Abre el archivo `request.http`
-
-2. Crea las estructuras de ejemplo para las operaciones del api de Supermercado
-Estructura:
-
-`Metodo {Uris}/{Recurso}   Protocolo `
-
-Debes usar la siguiente URI  `/api/v1`
-
-El objecto *producto* debe tener: id,nombre,descripcion,precio.
-
-Ejemplo: 
-```
-#Consulta de Usuarios
-### 
-# GET http://localhost:8000/usuario/4258951087961709784  HTTP/1.1
-```
-
-4. Ejecuta tus peticiones.
-
-
-Documentacion: https://marketplace.visualstudio.com/items?itemName=humao.rest-client

@@ -7,13 +7,3 @@ services:
 
 # https://github.com/mermaidjs/mermaid-live-editor
 # https://github.com/mermaid-js/mermaid
-
-  mock-server:
-    image: up9inc/wiremock-studio:2.32.0-18
-    ports: 
-      - "8000-8100:8000-8100"
-      - "9000:9000"
-    volumes:
-      - ./wiremock:/home/wiremock
-
-# https://wiremock.org/studio/docs/getting-started/docker/
