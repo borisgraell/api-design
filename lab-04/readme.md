@@ -1,17 +1,17 @@
 
-## Laboratorio 
+## Laboratorio 04
 
 
 ### Descripcion General
 
-Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Introduccion a las Apis
+Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Qué es la autenticación y la autorización en el contexto de las APIs?
 
 
 #### Actividades
 
 *  Descargar repositorio
 *  Levantar servidor de Mocks
-*  Consumir los apis de ejemplos
+*  Consumir los apis de ejemplos con autenticacion
 
 
 ### Configuracion
@@ -85,10 +85,12 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 
 2. Abre el archivo `request.http`
 
-4. Pruebe las peticiones pegandolas desde el navegador
+3. Pruebe las peticiones pegandolas desde el cliente
 
-* Consulta de usuario
-* Consulta de imagenes del usuario
-* Consulta de saldo del usuario
-* Consulta de la factura del usuario
+* Autenticacion Basica
+* Autenticacion por Token
+* Autenticacion por OAUTH
+
+
+
 
