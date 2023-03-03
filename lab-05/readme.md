@@ -4,7 +4,7 @@
 
 ### Descripcion General
 
-Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Introduccion a las Apis
+Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Gestión de errores y códigos de respuesta HTTP
 
 
 #### Actividades
