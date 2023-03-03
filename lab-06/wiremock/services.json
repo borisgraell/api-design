@@ -1,3 +1,8 @@
 {
-  "services" : [ ]
+  "services" : [ {
+    "id" : "wqq4e",
+    "name" : "lab06",
+    "port" : 8000,
+    "rootDir" : "lab06"
+  } ]
 }
