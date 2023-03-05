@@ -4,7 +4,7 @@
 
 ### Descripcion General
 
-Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Introduccion a las Apis
+Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: IDocumentación de la API: Swagger y otras herramientas
 
 
 #### Actividades
@@ -83,12 +83,10 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 
 1. Abre el navegador
 
-2. Abre el archivo `request.http`
+2. Crear las operaciones crud para una compania telefonica con el objetivo de consultar el saldo.
+Debe usar un objeto con los campos
+* id
+* phone_number
+* amount
 
-4. Pruebe las peticiones pegandolas desde el navegador
-
-* Consulta de usuario
-* Consulta de imagenes del usuario
-* Consulta de saldo del usuario
-* Consulta de la factura del usuario
-
+Usa la especificacion https://swagger.io/specification/v2/
