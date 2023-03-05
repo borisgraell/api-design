@@ -1,3 +1,8 @@
 {
-  "services" : [ ]
+  "services" : [ {
+    "id" : "71xkg",
+    "name" : "lab07",
+    "port" : 8000,
+    "rootDir" : "lab07"
+  } ]
 }

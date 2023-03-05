@@ -4,7 +4,7 @@
 
 ### Descripcion General
 
-Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Introduccion a las Apis
+Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Gestión de versiones de la API
 
 
 #### Actividades
@@ -85,10 +85,4 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 
 2. Abre el archivo `request.http`
 
-4. Pruebe las peticiones pegandolas desde el navegador
-
-* Consulta de usuario
-* Consulta de imagenes del usuario
-* Consulta de saldo del usuario
-* Consulta de la factura del usuario
-
+3. Pruebe las peticiones desde el cliente 
