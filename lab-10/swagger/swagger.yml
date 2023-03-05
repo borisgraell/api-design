@@ -1,142 +1,144 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
-  version: 1.0.0
-  title: API de Usuario
-  description: API para administrar usuarios y sus datos asociados
-basePath: /api/v1
+  version: "1.0.0"
+  title: "Product API"
+  description: "API for managing products"
+host: "localhost"
+tags:
+- name: "product"
 schemes:
-  - https
-consumes:
-  - application/json
-produces:
-  - application/json
+- "https"
+- "http"
+basePath: "/ac/v1/exp/"
+paths:
+  /user/login:
+    get:
+      tags:
+        - "authentication"
+      summary: "Login operation"
+      description: "Performs a login operation and returns a JWT"
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "x-request-id"
+        description: ""
+        type: "string"
+        required: true 
+      - in: "header"
+        name: "x-channel"
+        description: ""
+        type: "string"
+        required: true 
+      - name: "username"
+        in: "query"
+        description: "The user name for login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "The password for login in clear text"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful login"
+          schema:
+            type: "object"
+            properties:
+              token:
+                type: "string"
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+        401:
+          description: "Unauthorized"
+  
+  /product:
+    get:
+      tags:
+        - "product"
+      summary: "Get products operation"
+      description: "Retrieves a list of all products"
+      parameters:
+        - in: "header"
+          name: "Authorization"
+          description: "Bearer token"
+          type: "string"
+          required: true
+        - in: "header"
+          name: "x-request-id"
+          description: ""
+          type: "string"
+          required: true 
+        - in: "header"
+          name: "x-channel"
+          description: ""
+          type: "string"
+          required: true 
+      responses:
+        200:
+          description: "Successful retrieval of products"
+          schema:
+            $ref: "#/definitions/products"
+        401:
+          description: "Unauthorized"
+          
+  /product/{Id}:
+    get:
+      tags:
+        - "product"
+      summary: "Get product details operation"
+      description: "Retrieve product details"
+      parameters:
+        - in: "header"
+          name: "Authorization"
+          description: "Bearer token"
+          type: "string"
+          required: true
+        - in: "header"
+          name: "x-request-id"
+          description: ""
+          type: "string"
+          required: true 
+        - in: "header"
+          name: "x-channel"
+          description: ""
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "Successful retrieval of accounts"
+          schema:
+            $ref: "#/definitions/product"
+        401:
+          description: "Unauthorized"          
 
-# Definición del esquema de Usuario
 definitions:
-  Usuario:
-    type: object
+  products:
+    allOf:
+    - type: "array"
+      description: ""
+      items:
+        $ref: '#/definitions/product'
+
+  product:
+    type: "object"
+    description: ""
     required:
-      - id
-      - nombre
+    - "id"
     properties:
       id:
-        type: integer
-        format: int64
-      nombre:
-        type: string
-
-# Definición de los endpoints para Consulta de Usuario
-paths:
-  /usuarios/{id}:
-    get:
-      summary: Consultar los datos de un usuario
-      description: Retorna los detalles de un usuario específico
-      parameters:
-        - in: path
-          name: id
-          description: El ID del usuario a obtener
-          required: true
-          type: integer
-          format: int64
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Usuario'
-          examples:
-            application/json:
-              {
-                "id": 123,
-                "nombre": "Juan Pérez"
-              }
-        '404':
-          description: No encontrado
-
-  /usuarios/{id}/imagenes:
-    get:
-      summary: Consultar imágenes de un usuario
-      description: Retorna las imágenes asociadas a un usuario específico
-      parameters:
-        - in: path
-          name: id
-          description: El ID del usuario cuyas imágenes se quieren obtener
-          required: true
-          type: integer
-          format: int64
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              type: string
-          examples:
-            application/json:
-              [
-                "https://example.com/imagen1.jpg",
-                "https://example.com/imagen2.jpg",
-                "https://example.com/imagen3.jpg"
-              ]
-        '404':
-          description: No encontrado
-
-  /usuarios/{id}/saldo:
-    get:
-      summary: Consultar el saldo de un usuario
-      description: Retorna el saldo disponible de un usuario específico
-      parameters:
-        - in: path
-          name: id
-          description: El ID del usuario cuyo saldo se quiere obtener
-          required: true
-          type: integer
-          format: int64
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: object
-            properties:
-              saldo:
-                type: number
-                format: double
-          examples:
-            application/json:
-              {
-                "saldo": 1200.50
-              }
-        '404':
-          description: No encontrado
-
-  /usuarios/{id}/factura:
-    get:
-      summary: Consultar la factura de un usuario
-      description: Retorna la factura de un usuario específico
-      parameters:
-        - in: path
-          name: id
-          description: El ID del usuario cuya factura se quiere obtener
-          required: true
-          type: integer
-          format: int64
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: object
-            properties:
-              fecha:
-                type: string
-                format: date
-              monto:
-                type: number
-                format: double
-              items:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    nombre:
-                      type: string
-                    cantidad:
-                      type: number
+        type: "string"
+      alias:
+        type: "string"
+      name:
+        type: "string"
+      description:
+        type: "string"
+        example: "This is product 1"
+      currency:
+        type: "string"
+      status:
+        type: "string"
+      balance:
+        type: "number"

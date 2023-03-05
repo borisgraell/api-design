@@ -4,7 +4,7 @@
 
 ### Descripcion General
 
-Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Introduccion a las Apis
+Este directorio contiene las instruciones para el primer ejercicio relacionado con el tema: Ejemplos prácticos de diseño de APIs REST
 
 
 #### Actividades
@@ -63,7 +63,7 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 
 1. Accede a la carpeta 
 
-`lab-01` 
+`lab-10` 
 
 2. Abre el archivo 
 
@@ -78,17 +78,32 @@ git clone -b "module01" git@github.com:academia-consultec/api-design.git
 `http://localhost:9000`
 
 ----
+### Diseno API de Producto
 
-### Consumir apis de prueba
+1. Crea un api de producto con las siguientes condiciones:
+* Una operacion de login 
+* Una operacion de consulta de producto
+* Una operacion de consulta de producto por id
+* Deben usar una autorizacion 
 
-1. Abre el navegador
+2. Crear un mock services
 
-2. Abre el archivo `request.http`
+### API en Python
 
-4. Pruebe las peticiones pegandolas desde el navegador
+1. Entra  a la carpeta de python
 
-* Consulta de usuario
-* Consulta de imagenes del usuario
-* Consulta de saldo del usuario
-* Consulta de la factura del usuario
+2. Revisa el archivo main.py
 
+3. Crea la imagen
+
+`docker build -t api-product .`
+
+4. Valida la creacion de la imagen
+
+` docker images `
+
+5. Ejecuta el contenedor
+
+`docker run -p 8000:8000 api-product`
+
+6. Prueba las Operaciones
