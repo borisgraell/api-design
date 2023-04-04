@@ -37,9 +37,9 @@ Antes de Iniciar debes de iniciar asegurarse que cuenta con todo lo necesario pa
 1. Accede a por medio del navegador a la direccion: 
 https://github.com/academia-consultec/api-design
 
-2. Desplegar el boton `Code` y seleccionar `SSH` copiando con la url:
+2. Desplegar el boton `Code` y seleccionar `HTTPS` copiando con la url:
 
-`git@github.com:academia-consultec/api-design.git`
+`https://github.com/academia-consultec/api-design.git`
 
 3. Abre la terminal  
 
@@ -56,7 +56,7 @@ cd academia-consultec
 
 6. Clona el repositorio
 
-git clone -b "module01" git@github.com:academia-consultec/api-design.git
+git clone https://github.com/academia-consultec/api-design.git
 
 
 ### Aprovisione el entorno 
